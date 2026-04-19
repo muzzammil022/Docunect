@@ -8,6 +8,7 @@ import {
   HeadContent,
   Scripts,
 } from '@tanstack/react-router'
+import { StickyNav } from '../components/sticky-nav'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -31,6 +32,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <RootDocument>
+      <StickyNav />
       <Outlet />
     </RootDocument>
   )
