@@ -1,7 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 import React from 'react'
-import { Moon, Sun } from 'lucide-react'
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -26,32 +25,7 @@ const navItems = [
 ]
 
 export function StickyNav() {
-  const [isDark, setIsDark] = React.useState(() => {
-    if (typeof window === 'undefined') return false
-    
-    // Check localStorage first
-    const saved = localStorage.getItem('theme')
-    if (saved) {
-      return saved === 'dark'
-    }
-    
-    // Fall back to system preference
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-  })
-
   const [isScrolled, setIsScrolled] = React.useState(false)
-
-  React.useEffect(() => {
-    // Apply theme on mount and when isDark changes
-    const html = document.documentElement
-    if (isDark) {
-      html.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      html.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
-  }, [isDark])
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -61,10 +35,6 @@ export function StickyNav() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const toggleTheme = () => {
-    setIsDark(prev => !prev)
-  }
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
