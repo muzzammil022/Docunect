@@ -4,12 +4,11 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/instrument-sans";
 @import "@fontsource-variable/ibm-plex-sans";
-@import url('/assets/Vert\ Grotesk\ Display/Web\ Fonts/vertgroteskdisplay_light_macroman/stylesheet.css');
 
 @font-face {
     font-family: 'Vert Grotesk Display';
-    src: url('/assets/Vert\ Grotesk\ Display/Web\ Fonts/vertgroteskdisplay_light_macroman/vertgroteskdisplay-light-webfont.woff2') format('woff2'),
-         url('/assets/Vert\ Grotesk\ Display/Web\ Fonts/vertgroteskdisplay_light_macroman/vertgroteskdisplay-light-webfont.woff') format('woff');
+    src: url('/assets/Vert\ Grotesk\ Display/vertgroteskdisplay-light-webfont.woff2') format('woff2'),
+         url('/assets/Vert\ Grotesk\ Display/vertgroteskdisplay-light-webfont.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }

@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { Button } from '@/src/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import React from 'react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/src/lib/utils'
 import {
   NavigationMenu,
   NavigationMenuList,
