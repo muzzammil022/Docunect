@@ -1,40 +1,40 @@
 // src/routes/__root.tsx
 /// <reference types="vite/client" />
-import appCss from '../styles/global.css?url'
-import type { ReactNode } from 'react'
-import { useRouter } from '@tanstack/react-router'
+import appCss from "../styles/global.css?url";
+import type { ReactNode } from "react";
+import { useRouter } from "@tanstack/react-router";
 import {
   Outlet,
   createRootRoute,
   HeadContent,
   Scripts,
-} from '@tanstack/react-router'
-import { StickyNav } from '../components/sticky-nav'
-import { Footer } from '../components/footer'
-import { SidebarProvider } from '../components/sidebar-context'
+} from "@tanstack/react-router";
+import { StickyNav } from "../components/sticky-nav";
+import { Footer } from "../components/footer";
+import { SidebarProvider } from "../components/sidebar-context";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
-        charSet: 'utf-8',
+        charSet: "utf-8",
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
       },
       {
-        title: 'TanStack Start Starter',
+        title: "TanStack Start Starter",
       },
     ],
-    links: [{ rel: 'stylesheet', href: appCss }],
+    links: [{ rel: "stylesheet", href: appCss }],
   }),
   component: RootComponent,
-})
+});
 
 function RootComponent() {
-  const router = useRouter()
-  const isDashboard = router.state.location.pathname.startsWith('/dashboard')
+  const router = useRouter();
+  const isDashboard = router.state.location.pathname.startsWith("/dashboard");
 
   return (
     <RootDocument>
@@ -53,7 +53,7 @@ function RootComponent() {
         </div>
       </SidebarProvider>
     </RootDocument>
-  )
+  );
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
@@ -67,5 +67,5 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }
