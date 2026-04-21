@@ -22,21 +22,21 @@ export function Footer() {
   return (
     <footer className="bg-background border-t border-border/40 py-8">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="flex items-center justify-between gap-4">
-          {/* Left: India Time */}
-          <p className="text-sm text-foreground/60" style={{ fontFamily: "'Vert Grotesk Display', sans-serif" }}>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          {/* Time - Left on all sizes */}
+          <p className="text-sm text-foreground/60" style={{ fontFamily: "var(--font-display)" }}>
             🌍 {indiaTime} IST
           </p>
 
-          {/* Right: Credit */}
-          <p className="text-sm text-foreground/60" style={{ fontFamily: "'Vert Grotesk Display', sans-serif" }}>
+          {/* Credit - Below on mobile, right on desktop */}
+          <p className="text-sm text-foreground/60" style={{ fontFamily: "var(--font-display)" }}>
             This WebApp is created by{' '}
             <a
               href="https://muzzammilm.tech"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-foreground hover:text-foreground/80 transition-colors duration-300 font-medium"
-              style={{ fontFamily: "'Vert Grotesk Display', sans-serif" }}
+              style={{ fontFamily: "var(--font-display)" }}
             >
               Muzzammil M
               <ExternalLink className="size-4" />
