@@ -1,6 +1,6 @@
-import { Link } from '@tanstack/react-router'
+import { Link, useRouter } from '@tanstack/react-router'
 import { Button } from '@/src/components/ui/button'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, MessageCircle, User } from 'lucide-react'
 import React from 'react'
 import { cn } from '@/src/lib/utils'
 import {
@@ -27,6 +27,9 @@ const navItems = [
 export function StickyNav() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  const router = useRouter()
+  const isDashboard = router.state.location.pathname.startsWith('/dashboard')
+  const currentProject = 'My Project' // This should come from state/context
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -37,13 +40,50 @@ export function StickyNav() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Dashboard Navigation
+  if (isDashboard) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-40 h-16 bg-background border-b border-border">
+        <div className="flex items-center justify-between h-16 px-6">
+          {/* Left: Logo and Project */}
+          <div className="flex items-center gap-4">
+            <Link to="/" className="flex-shrink-0 font-bold text-foreground text-lg hover:opacity-80 transition-opacity" style={{ fontFamily: "var(--font-display)" }}>
+              Docunect
+            </Link>
+          </div>
+
+          {/* Right: Search + Ask AI + Profile */}
+          <div className="flex items-center gap-3">
+            <Button 
+              variant="outline"
+              size="sm"
+              className="gap-2 text-sm rounded-md"
+            >
+              <MessageCircle className="size-4" />
+              Ask AI
+            </Button>
+            
+            <Button 
+              variant="outline"
+              size="sm"
+              className="rounded-md p-2"
+            >
+              <User className="size-4" />
+            </Button>
+          </div>
+        </div>
+      </header>
+    )
+  }
+
+  // Regular Navigation
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         isScrolled ? 'bg-background/60 backdrop-blur-md border-b border-border/40' : 'bg-transparent border-b border-transparent'
       }`}>
         <div className={`flex items-center justify-between transition-all duration-500 ${
-          isScrolled ? 'px-6 py-2 h-16 max-w-6xl mx-auto' : 'px-4 py-4 container'
+          isScrolled ? 'h-16 px-6 max-w-6xl mx-auto' : 'h-20 px-4 container'
         }`}>
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 font-bold text-foreground text-lg hover:opacity-80 transition-opacity" style={{ fontFamily: "var(--font-display)" }}>
