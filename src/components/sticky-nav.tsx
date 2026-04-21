@@ -12,8 +12,6 @@ import {
 
 const navItems = [
   { name: 'Features', to: '/' },
-  { name: 'Pricing', to: '/' },
-  { name: 'Docs', to: '/' },
   {
     name: 'Resources',
     submenu: [

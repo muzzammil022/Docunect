@@ -9,6 +9,7 @@ import {
   Scripts,
 } from '@tanstack/react-router'
 import { StickyNav } from '../components/sticky-nav'
+import { Footer } from '../components/footer'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -34,6 +35,7 @@ function RootComponent() {
     <RootDocument>
       <StickyNav />
       <Outlet />
+      <Footer />
     </RootDocument>
   )
 }

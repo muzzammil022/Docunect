@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { ChevronRight, CirclePlay } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
+import { TypingTechStack } from './typing-tech-stack'
 
 
 export default function HeroSection() {
@@ -42,7 +43,7 @@ export default function HeroSection() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             <div className="flex flex-col justify-center">
                                 <h1 className="title mb-6">
-                                    You don't read the docs. We do.
+                                    You don't read the docs. We do. <TypingTechStack />
                                 </h1>
                                 <p className="subtitle mb-8 max-w-xl">
                                     Connect your repo, we'll handle the boring part - changelogs, updates, breaking changes, all in one place.
