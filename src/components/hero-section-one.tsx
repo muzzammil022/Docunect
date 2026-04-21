@@ -1,21 +1,51 @@
 import { Button } from '@/components/ui/button'
 import { ChevronRight, CirclePlay } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
+import { useEffect, useRef } from 'react'
 
 
 export default function HeroSection() {
+    const containerRef = useRef(null)
+
+    useEffect(() => {
+        // Load Lottie web player and animate
+        const script = document.createElement('script')
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js'
+        script.onload = () => {
+            const lottie = (window as any).lottie
+            if (lottie && containerRef.current) {
+                fetch('/Data _ Bundling.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        lottie.loadAnimation({
+                            container: containerRef.current,
+                            renderer: 'svg',
+                            loop: true,
+                            autoplay: true,
+                            animationData: data,
+                        })
+                    })
+            }
+        }
+        document.body.appendChild(script)
+
+        return () => {
+            document.body.removeChild(script)
+        }
+    }, [])
+
     return (
-        <main className="overflow-hidden pt-16">
+        <main className="overflow-hidden">
             <section className="bg-gradient-to-b to-muted from-background">
-                <div className="relative py-20 md:py-32">
-                    <div className="container mx-auto px-4">
+                <div className="relative pt-20 pb-20 md:py-32">
+                    <div className="container">
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             <div className="flex flex-col justify-center">
-                                <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6">
-                                    Simple payments for startups
+                                <h1 className="title mb-6">
+                                    You don't read the docs. We do.
                                 </h1>
-                                <p className="text-muted-foreground text-lg mb-8 max-w-xl">
-                                    One tool that does it all. Search, generate, analyze, and chat—right inside your platform.
+                                <p className="subtitle mb-8 max-w-xl">
+                                    Connect your repo, we'll handle the boring part - changelogs, updates, breaking changes, all in one place.
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -25,34 +55,11 @@ export default function HeroSection() {
                                             <ChevronRight className="ml-2 size-4" />
                                         </Link>
                                     </Button>
-                                    <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                                        <Link to="/">
-                                            <CirclePlay className="mr-2 size-4" />
-                                            <span>Watch video</span>
-                                        </Link>
-                                    </Button>
-                                </div>
-
-                                <div className="mt-12">
-                                    <p className="text-muted-foreground text-sm mb-4">Trusted by teams at:</p>
-                                    <p className="text-foreground font-medium">Vercel, Spotify, Supabase</p>
                                 </div>
                             </div>
 
                             <div className="flex items-center justify-center md:col-span-1">
-                                <div className="w-full perspective-near">
-                                    <div className="before:border-foreground/5 before:bg-foreground/5 relative before:absolute before:-inset-x-4 before:bottom-7 before:top-0 before:skew-x-6 before:rounded-[calc(var(--radius)+1rem)] before:border">
-                                        <div className="bg-background rounded-lg shadow-foreground/10 ring-foreground/5 relative skew-x-6 overflow-hidden border border-transparent shadow-md ring-1">
-                                            <img
-                                                src="/hero-img.jpg"
-                                                alt="app screen"
-                                                width="500"
-                                                height="400"
-                                                className="w-full h-auto object-cover"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
+                                <div ref={containerRef} className="w-full max-w-lg" />
                             </div>
                         </div>
                     </div>
