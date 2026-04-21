@@ -97,7 +97,7 @@ export function StickyNav() {
 
             {/* Get Started CTA */}
             <Button asChild size="lg" className="rounded-lg transition-colors duration-500 text-sm flex-shrink-0" style={{ fontFamily: "var(--font-display)" }}>
-              <Link to="/">Book a Demo</Link>
+              <Link to="/">Sign Up</Link>
             </Button>
           </div>
         </div>

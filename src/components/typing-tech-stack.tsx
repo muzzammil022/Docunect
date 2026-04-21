@@ -3,11 +3,14 @@ import TextType from './text-type'
 
 const techStack = [
   { name: 'Next.js', logo: '/assets/tech-stack/Next.js.svg' },
-  { name: 'React', logo: '/assets/tech-stack/Angular.svg' },
+  { name: 'Angular', logo: '/assets/tech-stack/Angular.svg' },
   { name: 'Bun', logo: '/assets/tech-stack/Bun.svg' },
   { name: 'MongoDB', logo: '/assets/tech-stack/MongoDB.svg' },
   { name: 'Redis', logo: '/assets/tech-stack/Redis.svg' },
   { name: 'Cloudflare', logo: '/assets/tech-stack/Cloudflare.svg' },
+  { name: 'Astro', logo: '/assets/tech-stack/Astro.svg' },
+  { name: 'Ruby on rails', logo: '/assets/tech-stack/Ruby-on-Rails.svg' },
+  { name: 'Django', logo: '/assets/tech-stack/Django.svg' },
 ]
 
 const techNames = techStack.map(tech => tech.name)
