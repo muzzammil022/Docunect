@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/src/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import React from 'react'
 import { cn } from '@/lib/utils'
@@ -10,7 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
   NavigationMenuContent,
-} from '@/components/ui/navigation-menu'
+} from '@/src/components/ui/navigation-menu'
 
 const navItems = [
   { name: 'Features', to: '/' },

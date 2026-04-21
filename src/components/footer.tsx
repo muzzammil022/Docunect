@@ -11,7 +11,7 @@ export function Footer() {
       const hours = istTime.getHours().toString().padStart(2, '0')
       const minutes = istTime.getMinutes().toString().padStart(2, '0')
       const seconds = istTime.getSeconds().toString().padStart(2, '0')
-      setIndiaTime(`${hours}:${minutes}:${seconds}`)
+      setIndiaTime(`${hours} : ${minutes} : ${seconds}`)
     }
 
     updateTime()
@@ -25,12 +25,12 @@ export function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           {/* Time - Left on all sizes */}
           <p className="text-sm text-foreground/60" style={{ fontFamily: "var(--font-display)" }}>
-            🌍 {indiaTime} IST
+            {indiaTime} IST
           </p>
 
           {/* Credit - Below on mobile, right on desktop */}
           <p className="text-sm text-foreground/60" style={{ fontFamily: "var(--font-display)" }}>
-            This WebApp is created by{' '}
+            This Application is created by{' '}
             <a
               href="https://muzzammilm.tech"
               target="_blank"
@@ -38,7 +38,7 @@ export function Footer() {
               className="inline-flex items-center gap-1.5 text-foreground hover:text-foreground/80 transition-colors duration-300 font-medium"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Muzzammil M
+              Muzzammil
               <ExternalLink className="size-4" />
             </a>
           </p>
