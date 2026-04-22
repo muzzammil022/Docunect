@@ -15,22 +15,24 @@ import { auth } from "@/src/lib/auth";
  *
  *   const { user } = await requireAuth()
  */
-export async function requireAuth() {
-  const request = getRequest();
+export const requireAuth = createServerFn({ method: "GET" }).handler(
+  async () => {
+    const request = getRequest();
 
-  const session = await auth.api.getSession({
-    headers: request.headers,
-  });
+    const session = await auth.api.getSession({
+      headers: request.headers,
+    });
 
-  if (!session?.user) {
-    throw new Error("UNAUTHORIZED");
-  }
+    if (!session?.user) {
+      throw new Error("UNAUTHORIZED");
+    }
 
-  return {
-    session,
-    user: session.user,
-  };
-}
+    return {
+      session,
+      user: session.user,
+    };
+  },
+);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SERVER FUNCTIONS
